@@ -29,7 +29,8 @@ namespace Bookstore.Models
                     {
                         ISBN = "978-0451419439",
                         Title = "Les Miserables",
-                        Author = "Victor Hugo",
+                        AuthorFirstName = "Victor",
+                        AuthorLastName = "Hugo",
                         Publisher = "Signet",
                         Classification = "Fiction",
                         Category = "Classic",
@@ -39,7 +40,9 @@ namespace Bookstore.Models
                     {
                         ISBN = "978-0743270755",
                         Title = "Team of Rivals",
-                        Author = "Doris Kearns Goodwin",
+                        AuthorFirstName = "Doris",
+                        AuthorMiddleName = "Kearns",
+                        AuthorLastName = "Goodwin",
                         Publisher = "Simon & Schuster",
                         Classification = "Non-Fiction",
                         Category = "Biography",
@@ -49,7 +52,8 @@ namespace Bookstore.Models
                     {
                         ISBN = "978-0553384611",
                         Title = "The Snowball",
-                        Author = "Alice Schroeder",
+                        AuthorFirstName = "Alice",
+                        AuthorLastName = "Schroeder",
                         Publisher = "Bantam",
                         Classification = "Non-Fiction",
                         Category = "Biography",
@@ -59,7 +63,9 @@ namespace Bookstore.Models
                     {
                         ISBN = "978-0812981254",
                         Title = "American Ulysses",
-                        Author = "Ronald C. White",
+                        AuthorFirstName = "Ronald",
+                        AuthorMiddleName = "C.",
+                        AuthorLastName = "White",
                         Publisher = "Random House",
                         Classification = "Non-Fiction",
                         Category = "Biography",
@@ -69,7 +75,8 @@ namespace Bookstore.Models
                     {
                         ISBN = "978-0812974492",
                         Title = "Unbroken",
-                        Author = "Laura Hillenbrand",
+                        AuthorFirstName = "Laura",
+                        AuthorLastName = "Hillenbrand",
                         Publisher = "Random House",
                         Classification = "Non-Fiction",
                         Category = "Historical",
@@ -79,7 +86,8 @@ namespace Bookstore.Models
                     {
                         ISBN = "978-0804171281",
                         Title = "The Great Train Robbery",
-                        Author = "Michael Crichton",
+                        AuthorFirstName = "Michael ",
+                        AuthorLastName = "Crichton",
                         Publisher = "Vintage",
                         Classification = "Fiction",
                         Category = "Historical Fiction",
@@ -89,7 +97,8 @@ namespace Bookstore.Models
                     {
                         ISBN = "978-1455586691",
                         Title = "Deep Work",
-                        Author = "Cal Newport",
+                        AuthorFirstName = "Cal",
+                        AuthorLastName = "Newport",
                         Publisher = "Grand Central Publishing",
                         Classification = "Non-Fiction",
                         Category = "Self-Help",
@@ -99,7 +108,8 @@ namespace Bookstore.Models
                     {
                         ISBN = "978-1455523023",
                         Title = "It's Your Ship",
-                        Author = "Michael Abrashoff",
+                        AuthorFirstName = "Michael",
+                        AuthorLastName = "Abrashoff",
                         Publisher = "Grand Central Publishing",
                         Classification = "Non-Fiction",
                         Category = "Self-Help",
@@ -109,7 +119,8 @@ namespace Bookstore.Models
                     {
                         ISBN = "978-1591847984",
                         Title = "The Virgin Way",
-                        Author = "Richard Branson",
+                        AuthorFirstName = "Richard",
+                        AuthorLastName = "Branson",
                         Publisher = "Portfolio",
                         Classification = "Non-Fiction",
                         Category = "Business",
@@ -119,7 +130,8 @@ namespace Bookstore.Models
                     {
                         ISBN = "978-0553393613",
                         Title = "Sycamore Row",
-                        Author = "John Grisham",
+                        AuthorFirstName = "John",
+                        AuthorLastName = "Grisham",
                         Publisher = "Bantam",
                         Classification = "Non-Fiction",
                         Category = "Thrillers",

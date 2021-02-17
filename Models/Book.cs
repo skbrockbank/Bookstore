@@ -14,15 +14,19 @@ namespace Bookstore.Models
 
         [Required]
         //Verify that the ISBN is in the proper format
-        [RegularExpression("^(97(8|9))?\\-\\d{10}$",
+        [RegularExpression("^(97(8|9))-[0-9]{10}$",
             ErrorMessage = "Please enter a valid ISBN number.")]
         public string ISBN { get; set; }
 
         [Required]
         public string Title { get; set; }
 
+        public string AuthorFirstName { get; set; }
+
+        public string AuthorMiddleName { get; set; }
+
         [Required]
-        public string Author { get; set; }
+        public string AuthorLastName { get; set; }
 
         [Required]
         public string Publisher { get; set; }
