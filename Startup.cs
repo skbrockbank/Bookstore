@@ -60,9 +60,13 @@ namespace Bookstore
 
             app.UseEndpoints(endpoints =>
             {
+                //Set URLs
                 endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    "pagination",
+                    "P{page}",
+                    new { Controller = "Home", action = "Index" });
+
+                endpoints.MapDefaultControllerRoute();
             });
 
             //Call SeedData to populate list

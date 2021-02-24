@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Bookstore.Models.ViewModels;
 
 namespace Bookstore.Controllers
 {
@@ -15,6 +16,8 @@ namespace Bookstore.Controllers
 
         private IBookstoreRepository _repository;
 
+        public int PageSize = 5;
+
         public HomeController(ILogger<HomeController> logger, IBookstoreRepository repository)
         {
             _logger = logger;
@@ -22,11 +25,27 @@ namespace Bookstore.Controllers
             _repository = repository;
         }
 
-        public IActionResult Index()
+        //Set the default page number to 1
+        public IActionResult Index(int page = 1)
         {
-            //Pass the private repository's list of books into the view
-            return View(_repository.Books);
+            //Pass the  list of books for that page into the view
+            return View(new BookListViewModel
+            {
+                Books = _repository.Books
+                    .OrderBy(b => b.BookID)
+                    .Skip((page - 1) * PageSize)
+                    .Take(PageSize)
+                ,
+                //Build the paging info
+                PagingInfo = new PagingInfo
+                {
+                    CurrentPage = page,
+                    ItemsPerPage = PageSize,
+                    TotalNumItems = _repository.Books.Count()
+                }
+            });
         }
+
 
         public IActionResult Privacy()
         {

@@ -34,7 +34,8 @@ namespace Bookstore.Models
                         Publisher = "Signet",
                         Classification = "Fiction",
                         Category = "Classic",
-                        Price = 9.95
+                        Price = 9.95,
+                        Pages = 1488
                     },
                     new Book
                     {
@@ -46,7 +47,8 @@ namespace Bookstore.Models
                         Publisher = "Simon & Schuster",
                         Classification = "Non-Fiction",
                         Category = "Biography",
-                        Price = 14.58
+                        Price = 14.58,
+                        Pages = 944
                     },
                     new Book
                     {
@@ -57,7 +59,8 @@ namespace Bookstore.Models
                         Publisher = "Bantam",
                         Classification = "Non-Fiction",
                         Category = "Biography",
-                        Price = 21.54
+                        Price = 21.54,
+                        Pages = 832
                     },
                     new Book
                     {
@@ -69,7 +72,8 @@ namespace Bookstore.Models
                         Publisher = "Random House",
                         Classification = "Non-Fiction",
                         Category = "Biography",
-                        Price = 21.54
+                        Price = 21.54,
+                        Pages = 864
                     },
                     new Book
                     {
@@ -80,7 +84,8 @@ namespace Bookstore.Models
                         Publisher = "Random House",
                         Classification = "Non-Fiction",
                         Category = "Historical",
-                        Price = 13.33
+                        Price = 13.33,
+                        Pages = 528
                     },
                     new Book
                     {
@@ -91,7 +96,8 @@ namespace Bookstore.Models
                         Publisher = "Vintage",
                         Classification = "Fiction",
                         Category = "Historical Fiction",
-                        Price = 15.95
+                        Price = 15.95,
+                        Pages = 288
                     },
                     new Book
                     {
@@ -102,7 +108,8 @@ namespace Bookstore.Models
                         Publisher = "Grand Central Publishing",
                         Classification = "Non-Fiction",
                         Category = "Self-Help",
-                        Price = 14.99
+                        Price = 14.99,
+                        Pages = 304
                     },
                     new Book
                     {
@@ -113,7 +120,8 @@ namespace Bookstore.Models
                         Publisher = "Grand Central Publishing",
                         Classification = "Non-Fiction",
                         Category = "Self-Help",
-                        Price = 21.66
+                        Price = 21.66,
+                        Pages = 240
                     },
                     new Book
                     {
@@ -124,7 +132,8 @@ namespace Bookstore.Models
                         Publisher = "Portfolio",
                         Classification = "Non-Fiction",
                         Category = "Business",
-                        Price = 29.16
+                        Price = 29.16,
+                        Pages = 400
                     },
                     new Book
                     {
@@ -135,7 +144,44 @@ namespace Bookstore.Models
                         Publisher = "Bantam",
                         Classification = "Non-Fiction",
                         Category = "Thrillers",
-                        Price = 15.03
+                        Price = 15.03,
+                        Pages = 642
+                    },
+                    new Book
+                    {
+                        ISBN = "978-1432859329",
+                        Title = "Blackmoore",
+                        AuthorFirstName = "Julianne",
+                        AuthorLastName = "Donaldson",
+                        Publisher = "Shadow Mountain",
+                        Classification = "Fiction",
+                        Category = "Romance",
+                        Price = 9.51,
+                        Pages = 320
+                    },
+                    new Book
+                    {
+                        ISBN = "978-2382261101",
+                        Title = "How to Win Friends and Influence People",
+                        AuthorFirstName = "Dale",
+                        AuthorLastName = "Carnegie",
+                        Publisher = "Pocket Books",
+                        Classification = "Non-Fiction",
+                        Category = "Self-Help",
+                        Price = 10.38,
+                        Pages = 288
+                    },
+                    new Book
+                    {
+                        ISBN = "978-2382261101",
+                        Title = "Grit",
+                        AuthorFirstName = "Angela",
+                        AuthorLastName = "Duckworth",
+                        Publisher = "Scribner Book Company",
+                        Classification = "Non-Fiction",
+                        Category = "Self-Help",
+                        Price = 19.04,
+                        Pages = 352
                     }
                 );
 
