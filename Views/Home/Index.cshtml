@@ -7,9 +7,6 @@
 <!--For my extra bootstrap, I added the table class, made the table dark with the table-dark class, and changed the header back to light with the thead-light class-->
 
 <div class="text-center">
-    <header>
-        <h1>Buy a Book</h1>
-    </header>
     <table class="table table-dark">
         <thead class="thead-light">
             <tr>
@@ -27,20 +24,13 @@
         <tbody>
             @foreach (var b in Model.Books)
             {
-                <tr>
-                    <td>@b.BookID</td>
-                    <td>@b.Title</td>
-                    <td>@b.AuthorFirstName @b.AuthorMiddleName @b.AuthorLastName</td>
-                    <td>@b.Publisher</td>
-                    <td>@b.ISBN</td>
-                    <td>@b.Classification</td>
-                    <td>@b.Category</td>
-                    <td>$@b.Price</td>
-                    <td>@b.Pages</td>
-                </tr>
+                <partial name="BookSummary" model="b"/>
             }
         </tbody>
     </table>
 
-    <div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true" page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>
+    <div page-model="@Model.PagingInfo" page-action="Index" 
+         page-classes-enabled="true" page-class="btn" page-class-normal="btn-outline-dark" 
+         page-class-selected="btn-primary" page-url-category="@Model.CurrentCategory"
+         class="btn-group pull-right m-1"></div>
 </div>

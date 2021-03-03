@@ -8,11 +8,17 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+    <header role="heading">
+        <h1 class="text-center">Buy a Book</h1>
+    </header>
+    <main role="main" class="pb-3">
+        <div class="text-center m-2">
+            <vc:navigation-menu></vc:navigation-menu>
+        </div>
+        <div class="container">
+                @RenderBody()
+        </div>
+    </main>
 
     <footer class="border-top footer text-muted">
         <div class="container">

@@ -28,6 +28,11 @@ namespace Bookstore.Infrastructure
         public ViewContext ViewContext { get; set; }
         public PagingInfo PageModel { get; set; }
         public string PageAction { get; set; }
+        
+        // Adds to the dictionary when attributes with the common prefix are made
+        [HtmlAttributeName(DictionaryAttributePrefix = "page-url-")]
+        public Dictionary<string, object> PageUrlValues { get; set; } = new Dictionary<string, object>();
+
         //Set up properties for bootstrap
         public bool PageClassesEnabled { get; set; } = false;
         public string PageClass { get; set; }
@@ -46,7 +51,10 @@ namespace Bookstore.Infrastructure
             {
                 //Create a link to the page
                 TagBuilder tag = new TagBuilder("a");
-                tag.Attributes["href"] = urlHelper.Action(PageAction, new { page = i });
+
+                //Set the page number
+                PageUrlValues["page"] = i;
+                tag.Attributes["href"] = urlHelper.Action(PageAction, PageUrlValues);
 
                 //Add CSS classes
                 if (PageClassesEnabled)

@@ -26,12 +26,14 @@ namespace Bookstore.Controllers
         }
 
         //Set the default page number to 1
-        public IActionResult Index(int page = 1)
+        public IActionResult Index(string category, int page = 1)
         {
             //Pass the  list of books for that page into the view
             return View(new BookListViewModel
             {
                 Books = _repository.Books
+                    //Select the items from the right category
+                    .Where(b => category == null || b.Category == category)
                     .OrderBy(b => b.BookID)
                     .Skip((page - 1) * PageSize)
                     .Take(PageSize)
@@ -41,8 +43,10 @@ namespace Bookstore.Controllers
                 {
                     CurrentPage = page,
                     ItemsPerPage = PageSize,
-                    TotalNumItems = _repository.Books.Count()
-                }
+                    // Change the page numbers based on if a category is selected
+                    TotalNumItems = category == null ? _repository.Books.Count() : _repository.Books.Where(x => x.Category == category).Count()
+                },
+                CurrentCategory = category
             });
         }
 
