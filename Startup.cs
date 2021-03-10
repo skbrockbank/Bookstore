@@ -1,6 +1,7 @@
 using Bookstore.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -31,11 +32,22 @@ namespace Bookstore
             //Add the DbContext that we created
             services.AddDbContext<BookstoreDbContext>(options =>
             {
-                options.UseSqlServer(Configuration["ConnectionStrings:OnlineBookstoreConnection"]);
+                options.UseSqlite(Configuration["ConnectionStrings:OnlineBookstoreConnection"]);
             });
 
             //Give each session its own repository object
             services.AddScoped<IBookstoreRepository, EFBookstoreRepository>();
+
+            //Add in razor pages
+            services.AddRazorPages();
+
+            //These make the information stay in the cart
+            services.AddDistributedMemoryCache();
+            services.AddSession();
+
+            //Create a service for the cart class
+            services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,6 +66,9 @@ namespace Bookstore
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
+            //Makes it so the information stays in the cart
+            app.UseSession();
+
             app.UseRouting();
 
             app.UseAuthorization();
@@ -62,26 +77,29 @@ namespace Bookstore
             {
                 //Set the URLs for pages and categories together
                 endpoints.MapControllerRoute("catpage",
-                    "{category}/{page:int}",
+                    "{category}/{pageNum:int}",
                     new { Controller = "Home", action = "Index" });
 
                 //Set the URLs for only a page
                 endpoints.MapControllerRoute("page",
-                    "{page:int}",
+                    "{pageNum:int}",
                     new { Controller = "Home", action = "Index" });
 
                 //Set the URLs for only a category
                 endpoints.MapControllerRoute("category",
                     "{category}",
-                    new { Controller = "Home", action = "Index", page = 1 });
+                    new { Controller = "Home", action = "Index", pageNum = 1 });
 
                 //Set URLs for pages
                 endpoints.MapControllerRoute(
                     "pagination",
-                    "P{page}",
+                    "P{pageNum}",
                     new { Controller = "Home", action = "Index" });
 
                 endpoints.MapDefaultControllerRoute();
+
+                //Map the razor pages
+                endpoints.MapRazorPages();
             });
 
             //Call SeedData to populate list

@@ -14,9 +14,10 @@ namespace Bookstore.Models
         {
             BookstoreDbContext context = application.ApplicationServices.CreateScope().ServiceProvider.GetRequiredService<BookstoreDbContext>();
             
-            //Check if there are any pendin migrations and migrate them
+            //Check if there are any pending migrations and migrate them
             if(context.Database.GetPendingMigrations().Any())
             {
+                //Commented this out because it was throwing an error saying that the Books table already exists
                 context.Database.Migrate();
             }
 
@@ -34,7 +35,7 @@ namespace Bookstore.Models
                         Publisher = "Signet",
                         Classification = "Fiction",
                         Category = "Classic",
-                        Price = 9.95,
+                        Price = 9.95M,
                         Pages = 1488
                     },
                     new Book
@@ -47,7 +48,7 @@ namespace Bookstore.Models
                         Publisher = "Simon & Schuster",
                         Classification = "Non-Fiction",
                         Category = "Biography",
-                        Price = 14.58,
+                        Price = 14.58M,
                         Pages = 944
                     },
                     new Book
@@ -59,7 +60,7 @@ namespace Bookstore.Models
                         Publisher = "Bantam",
                         Classification = "Non-Fiction",
                         Category = "Biography",
-                        Price = 21.54,
+                        Price = 21.54M,
                         Pages = 832
                     },
                     new Book
@@ -72,7 +73,7 @@ namespace Bookstore.Models
                         Publisher = "Random House",
                         Classification = "Non-Fiction",
                         Category = "Biography",
-                        Price = 21.54,
+                        Price = 21.54M,
                         Pages = 864
                     },
                     new Book
@@ -84,7 +85,7 @@ namespace Bookstore.Models
                         Publisher = "Random House",
                         Classification = "Non-Fiction",
                         Category = "Historical",
-                        Price = 13.33,
+                        Price = 13.33M,
                         Pages = 528
                     },
                     new Book
@@ -96,7 +97,7 @@ namespace Bookstore.Models
                         Publisher = "Vintage",
                         Classification = "Fiction",
                         Category = "Historical Fiction",
-                        Price = 15.95,
+                        Price = 15.95M,
                         Pages = 288
                     },
                     new Book
@@ -108,7 +109,7 @@ namespace Bookstore.Models
                         Publisher = "Grand Central Publishing",
                         Classification = "Non-Fiction",
                         Category = "Self-Help",
-                        Price = 14.99,
+                        Price = 14.99M,
                         Pages = 304
                     },
                     new Book
@@ -120,7 +121,7 @@ namespace Bookstore.Models
                         Publisher = "Grand Central Publishing",
                         Classification = "Non-Fiction",
                         Category = "Self-Help",
-                        Price = 21.66,
+                        Price = 21.66M,
                         Pages = 240
                     },
                     new Book
@@ -132,7 +133,7 @@ namespace Bookstore.Models
                         Publisher = "Portfolio",
                         Classification = "Non-Fiction",
                         Category = "Business",
-                        Price = 29.16,
+                        Price = 29.16M,
                         Pages = 400
                     },
                     new Book
@@ -144,7 +145,7 @@ namespace Bookstore.Models
                         Publisher = "Bantam",
                         Classification = "Non-Fiction",
                         Category = "Thrillers",
-                        Price = 15.03,
+                        Price = 15.03M,
                         Pages = 642
                     },
                     new Book
@@ -156,7 +157,7 @@ namespace Bookstore.Models
                         Publisher = "Shadow Mountain",
                         Classification = "Fiction",
                         Category = "Romance",
-                        Price = 9.51,
+                        Price = 9.51M,
                         Pages = 320
                     },
                     new Book
@@ -168,7 +169,7 @@ namespace Bookstore.Models
                         Publisher = "Pocket Books",
                         Classification = "Non-Fiction",
                         Category = "Self-Help",
-                        Price = 10.38,
+                        Price = 10.38M,
                         Pages = 288
                     },
                     new Book
@@ -180,7 +181,7 @@ namespace Bookstore.Models
                         Publisher = "Scribner Book Company",
                         Classification = "Non-Fiction",
                         Category = "Self-Help",
-                        Price = 19.04,
+                        Price = 19.04M,
                         Pages = 352
                     }
                 );

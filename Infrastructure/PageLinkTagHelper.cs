@@ -53,7 +53,7 @@ namespace Bookstore.Infrastructure
                 TagBuilder tag = new TagBuilder("a");
 
                 //Set the page number
-                PageUrlValues["page"] = i;
+                PageUrlValues["pageNum"] = i;
                 tag.Attributes["href"] = urlHelper.Action(PageAction, PageUrlValues);
 
                 //Add CSS classes

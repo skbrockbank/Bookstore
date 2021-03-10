@@ -38,7 +38,7 @@ namespace Bookstore.Models
         public string Category { get; set; }
 
         [Required]
-        public double Price { get; set; }
+        public decimal Price { get; set; }
 
         [Required]
         public int Pages { get; set; }
